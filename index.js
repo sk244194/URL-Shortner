@@ -75,7 +75,7 @@ app.get('/:shortId', async (req, res) => {
     res.redirect(entry.redirectURL);
 });
 
-
-app.listen(PORT, () => {
-    console.log("Server Started on port", PORT);
+const HOST = '0.0.0.0'; // Required to make it accessible externally on Render
+app.listen(PORT, HOST, () => {
+    console.log(`Server is listening on http://${HOST}:${PORT}`);
 });
