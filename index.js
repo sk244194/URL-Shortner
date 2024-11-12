@@ -7,7 +7,7 @@ const URL = require("./models/url");
 const path = require("path");
 
 const app = express(); // Initialize the Express app
-const DB_URL = process.env.DB_URL || "mongodb+srv://URL_Shortner:qwertyuiop@cluster0.0xasz.mongodb.net/"
+const DB_URL = process.env.DB_URL || "mongodb+srv://URL_Shortner:qwertyuiop@cluster0.0xasz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 
 require("dotenv").config();
