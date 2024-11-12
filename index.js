@@ -1,19 +1,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const PORT = 7000;
+const PORT = process.env.PORT || 7000
 const { connectToMongoDB } = require("./connect"); 
 const urlRoute = require("./routes/url");
 const URL = require("./models/url");
 const path = require("path");
 
 const app = express(); // Initialize the Express app
+const DB_URL = process.env.DB_URL
+
+
+require("dotenv").config();
 
 // Middleware
 // Add this line to handle JSON bodies
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 
-connectToMongoDB('mongodb://127.0.0.1:27017/URL_Shortner')
+connectToMongoDB(DB_URL)
     .then(() => console.log("Database Connected"))
     .catch((error) => console.error("Database connection failed:", error));
 
